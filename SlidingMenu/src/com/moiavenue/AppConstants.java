@@ -2,7 +2,7 @@ package com.moiavenue;
 
 public class AppConstants {
 	// public static final String BASE_URL =
-	// "http://smartserve.net78.net/bank/service.php";
+	//// "http://smartserve.net78.net/bank/service.php";
 
 	public static final String BASE_URL = "http://smartserve.net78.net/wb/ws_req/service.php";
 

@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- Registration -->
+    <dimen name="margin_registration_view">16dp</dimen>
+
+    <!-- Margin -->
+
+    <dimen name="margin_small_basic">2dp</dimen>
+    <dimen name="margin_small">3dp</dimen>
+    <dimen name="margin_small_large">5dp</dimen>
+
+    <!-- login -->
+    <dimen name="margin_login_top_text">10dp</dimen>
+    <dimen name="margin_login_top">15dp</dimen>
+    <dimen name="margin_login_top2">10dp</dimen>
+
+    <!-- Pre - login -->
+    <dimen name="margin_plogin_top">40dp</dimen>
+    <dimen name="margin_plogin_top_btn">15dp</dimen>
+
+    <!-- Forgot password -->
+    <dimen name="margin_fp_top">40dp</dimen>
+    <dimen name="margin_fp_top_btn">15dp</dimen>
+    <dimen name="padding_fp_email">5dp</dimen>
+    <dimen name="margin_transfer_top">15dp</dimen>
+
+</resources>

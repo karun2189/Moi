@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/blue_bg" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_small_large" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_login_top2"
+                android:drawableLeft="@drawable/ic_launcher"
+                android:gravity="center"
+                android:text="Moi Avenue"
+                android:textColor="@color/white_text"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/reg_username_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_login_top"
+                android:background="@color/button_back"
+                android:ems="10"
+                android:hint="Your Name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:padding="@dimen/padding_fp_email" >
+
+                <requestFocus android:layout_width="match_parent" />
+            </EditText>
+
+            <EditText
+                android:id="@+id/reg_mail_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_login_top"
+                android:background="@color/button_back"
+                android:ems="10"
+                android:hint="Your Email Address"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/padding_fp_email" >
+
+                <requestFocus android:layout_width="match_parent" />
+            </EditText>
+
+            <EditText
+                android:id="@+id/reg_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_login_top"
+                android:background="@color/button_back"
+                android:ems="10"
+                android:hint="Your Mobile Number"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:padding="@dimen/padding_fp_email" >
+
+                <requestFocus android:layout_width="match_parent" />
+            </EditText>
+
+            <EditText
+                android:id="@+id/reg_password_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_login_top"
+                android:background="@color/button_back"
+                android:ems="10"
+                android:hint="Password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:padding="@dimen/padding_fp_email" />
+
+            <EditText
+                android:id="@+id/reg_reenter_password_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_login_top"
+                android:background="@color/button_back"
+                android:ems="10"
+                android:hint="Re-Enter Password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:padding="@dimen/padding_fp_email" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_small_large"
+                android:weightSum="1" >
+
+                <Button
+                    android:id="@+id/cancel_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/round_rect_button"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Cancel"
+                    android:textColor="@color/white_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/register_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/round_rect_button"
+                    android:gravity="center"
+                    android:text="Register"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/white_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

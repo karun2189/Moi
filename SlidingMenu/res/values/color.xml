@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#992416</color>
+    <color name="list_divider">#272727</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="blue_bg">#4680a3</color>
+    <!-- Pre - login -->
+    <color name="button_color_green">#3C6231</color>
+    <color name="blue_btn_text">#2f5d7a</color>
+    <!-- login -->
+    <color name="white_text">#eeefef</color>
+    <color name="blue_text">#203848</color>
+    <color name="butt_clr">#0E3343</color>
+    <color name="but_clr">#832847</color>
+    <color name="button_color">#BFDFF4</color>
+    <color name="screen_bankground">#2F1A3D</color>
+    <color name="button_back">#382541</color>
+    <color name="green_but_back">#21A56F</color>
+
+</resources>

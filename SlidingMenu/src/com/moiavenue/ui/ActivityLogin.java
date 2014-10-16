@@ -1,6 +1,5 @@
 package com.moiavenue.ui;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -18,7 +17,11 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.moiavenue.AppConstants;
 import com.moiavenue.R;
+import com.moiavenue.commonutility.MoiAvenueUtilities;
+import com.moiavenue.parser.MoiAvenueParser;
 import com.moiavenue.reqmodel.LoginReq;
+import com.moiavenue.respmodel.LoginResponse;
+import com.moiavenue.service.ResponseListener;
 import com.moiavenue.service.WebserviceListener;
 import com.moiavenue.service.WebserviceManager;
 
@@ -31,8 +34,11 @@ public class ActivityLogin extends Activity implements OnClickListener {
 	private EditText etPassword;
 	private String mUserName;
 	private String mPassword;
+	public static String name = "test";
+	public static String id = "1";
+	
 
-//	private Context context = ActivityLogin.this;
+	// private Context context = ActivityLogin.this;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +81,7 @@ public class ActivityLogin extends Activity implements OnClickListener {
 		commonReq.setAction(AppConstants.LOGIN_ACTION);
 		commonReq.setEmail(mUserName);
 		commonReq.setPass(mPassword);
+
 		WebserviceManager.getResponseForRequest(this, commonReq,
 				new WebserviceListener() {
 
@@ -82,22 +89,31 @@ public class ActivityLogin extends Activity implements OnClickListener {
 					public void onSucess(JSONObject response) {
 						try {
 
-							if (response.has("status")
-									&& (response.getInt("status") == AppConstants.SUCCESS)) {
+							MoiAvenueParser.getDataObject(
+									MoiAvenueUtilities.LOGIN_REQ,
+									response.toString(),
+									new ResponseListener() {
 
-								onSuceeLoginResponse();
-							} else if (response.has("message")) {
-								Toast.makeText(
-										ActivityLogin.this,
-										"Error in Response"
-												+ response.get("message"),
-										Toast.LENGTH_LONG).show();
-							}
+										@Override
+										public void onResponseReceived(
+												int mRequestType,
+												Object mResponseObject) {
+											// TODO Auto-generated method stub
+											LoginResponse loginResponse = (LoginResponse) mResponseObject;
+//											Toast.makeText(
+//													ActivityLogin.this,
+//													"succ"
+//															+ loginResponse
+//																	.getErrorMessage(),
+//													Toast.LENGTH_LONG).show();
+											name = loginResponse.getUserName();
+											id = loginResponse.getUserId();
+											onSuceeLoginResponse();
+
+										}
+									});
 
 						} catch (NumberFormatException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (JSONException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}

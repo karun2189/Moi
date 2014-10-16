@@ -15,6 +15,9 @@ public class CommentsDataDetails {
 
 	@JsonProperty("commenter_comment_file_url")
 	private String commenterCommentFile;
+	
+	@JsonProperty("time")
+	private String time;
 
 	public String getCommenterName() {
 		return commenterName;

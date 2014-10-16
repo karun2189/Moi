@@ -18,8 +18,13 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.moiavenue.AppConstants;
 import com.moiavenue.R;
+import com.moiavenue.commonutility.MoiAvenueUtilities;
+import com.moiavenue.parser.MoiAvenueParser;
 import com.moiavenue.reqmodel.ForgotLoginReq;
 import com.moiavenue.reqmodel.LoginReq;
+import com.moiavenue.respmodel.CommonResponse;
+import com.moiavenue.respmodel.LoginResponse;
+import com.moiavenue.service.ResponseListener;
 import com.moiavenue.service.WebserviceListener;
 import com.moiavenue.service.WebserviceManager;
 
@@ -71,21 +76,42 @@ public class ActivityForgotPassword extends Activity implements OnClickListener 
 					public void onSucess(JSONObject response) {
 						try {
 
-							if (response.has("status")
-									&& (response.getInt("status") == AppConstants.SUCCESS)) {
+							// if (response.has("status")
+							// && (response.getInt("status") ==
+							// AppConstants.SUCCESS)) {
+							//
+							// onSucessForgotLoginResponse();
+							// }
+							// else if(response.has("message"))
+							// {
+							// Toast.makeText(ActivityForgotPassword.this,
+							// "Error in Response"+response.get("message"),
+							// Toast.LENGTH_LONG).show();
+							// }
 
-								onSucessForgotLoginResponse();
-							}
-							else if(response.has("message"))
-							{
-								Toast.makeText(ActivityForgotPassword.this,
-										"Error in Response"+response.get("message"), Toast.LENGTH_LONG).show();
-							}
+							MoiAvenueParser.getDataObject(
+									MoiAvenueUtilities.REG_REQ,
+									response.toString(),
+									new ResponseListener() {
+
+										@Override
+										public void onResponseReceived(
+												int mRequestType,
+												Object mResponseObject) {
+											// TODO Auto-generated method stub
+											CommonResponse loginResponse = (CommonResponse) mResponseObject;
+											Toast.makeText(
+													ActivityForgotPassword.this,
+													"succ"
+															+ loginResponse
+																	.getErrorMessage(),
+													Toast.LENGTH_LONG).show();
+
+											onSucessForgotLoginResponse();
+										}
+									});
 
 						} catch (NumberFormatException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (JSONException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
@@ -95,7 +121,8 @@ public class ActivityForgotPassword extends Activity implements OnClickListener 
 					@Override
 					public void onFailure(VolleyError error) {
 						Toast.makeText(ActivityForgotPassword.this,
-								"Error in Response"+error.getMessage(), Toast.LENGTH_LONG).show();
+								"Error in Response" + error.getMessage(),
+								Toast.LENGTH_LONG).show();
 					}
 				});
 	}

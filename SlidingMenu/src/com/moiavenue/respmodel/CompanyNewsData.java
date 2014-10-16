@@ -15,6 +15,17 @@ public class CompanyNewsData {
 	@JsonProperty("posted_person_profile_image_url")
 	private String postedPersonProfileImageUrl;
 
+	public String getPostId() {
+		return postId;
+	}
+
+	public void setPostId(String postId) {
+		this.postId = postId;
+	}
+
+	@JsonProperty("post_id")
+	private String postId;
+
 	@JsonProperty("poster_id")
 	private String posterId;
 

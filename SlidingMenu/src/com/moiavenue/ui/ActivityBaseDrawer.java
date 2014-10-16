@@ -1,14 +1,18 @@
 package com.moiavenue.ui;
 
-
+import java.io.File;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -20,6 +24,8 @@ import android.widget.ListView;
 
 import com.moiavenue.R;
 import com.moiavenue.adapter.NavDrawerListAdapter;
+import com.moiavenue.commonutility.ProfileImageSelectionUtil;
+import com.moiavenue.dialog.FeedbackDialog;
 import com.moiavenue.model.NavDrawerItem;
 
 public class ActivityBaseDrawer extends Activity {
@@ -39,6 +45,8 @@ public class ActivityBaseDrawer extends Activity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
+	private Bitmap bitmap;
+	private NavDrawerItem mCompnayNewsItem;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,19 +69,30 @@ public class ActivityBaseDrawer extends Activity {
 
 		// adding nav drawer items to array
 		// Home
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-		// Find People
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-		// Photos
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+		// .getResourceId(0, -1)));
+		// // Find People
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+		// .getResourceId(1, -1)));
+		// // Photos
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+		// .getResourceId(2, -1)));
+
+		mCompnayNewsItem = new NavDrawerItem(navMenuTitles[0],
+				navMenuIcons.getResourceId(3, -1), true, "0");
 		// Communities, Will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
+		navDrawerItems.add(mCompnayNewsItem);
+
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(2, -1)));
 		// Pages
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-		// What's hot, We  will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
-		
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+		// .getResourceId(4, -1)));
+		// // What's hot, We will add a counter here
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
+		// .getResourceId(5, -1)));
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
+		// .getResourceId(6, -1)));
 
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -90,9 +109,11 @@ public class ActivityBaseDrawer extends Activity {
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, //nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for accessibility
-				R.string.app_name // nav drawer close - description for accessibility
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
 		) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
@@ -114,6 +135,10 @@ public class ActivityBaseDrawer extends Activity {
 		}
 	}
 
+	public void setCount(int count) {
+		mCompnayNewsItem.setCount("" + count);
+	}
+
 	/**
 	 * Slide menu item click listener
 	 * */
@@ -129,8 +154,8 @@ public class ActivityBaseDrawer extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		// getMenuInflater().inflate(R.menu.main, menu);
+		return false;
 	}
 
 	@Override
@@ -167,19 +192,25 @@ public class ActivityBaseDrawer extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
-			fragment = new HomeFragment();
+			// fragment = new HomeFragment();
+			fragment = new CompanyNewsFragment();
 			break;
 		case 1:
-			fragment = new FindPeopleFragment();
+			// fragment = new FindPeopleFragment();
+//			FeedbackDialog feedbackDialog = new FeedbackDialog();
+//			feedbackDialog.showFeedback(this);
+			fragment = new FeedBackFragment(); 
 			break;
 		case 2:
 			fragment = new PhotosFragment();
 			break;
 		case 3:
-			fragment = new CommunityFragment();
+			fragment = new CompanyNewsFragment();
 			break;
 		case 4:
-			fragment = new PagesFragment();
+			// fragment = new PagesFragment();
+			// FeedbackDialog feedbackDialog = new FeedbackDialog();
+			// feedbackDialog
 			break;
 		case 5:
 			fragment = new WhatsHotFragment();
@@ -205,6 +236,21 @@ public class ActivityBaseDrawer extends Activity {
 		}
 	}
 
+	public void refreshFragment() {
+
+		Fragment fragment = new CompanyNewsFragment();
+		FragmentManager fragmentManager = getFragmentManager();
+		fragmentManager.beginTransaction()
+				.replace(R.id.frame_container, fragment).commit();
+
+		// update selected item and title, then close the drawer
+		mDrawerList.setItemChecked(0, true);
+		mDrawerList.setSelection(0);
+		setTitle(navMenuTitles[0]);
+		mDrawerLayout.closeDrawer(mDrawerList);
+
+	}
+
 	@Override
 	public void setTitle(CharSequence title) {
 		mTitle = title;
@@ -228,6 +274,62 @@ public class ActivityBaseDrawer extends Activity {
 		super.onConfigurationChanged(newConfig);
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		String filePath = "";
+		if (resultCode == RESULT_OK) {
+			if (requestCode == ProfileImageSelectionUtil.CAMERA
+					|| requestCode == ProfileImageSelectionUtil.GALLERY) {
+
+				Bitmap image = ProfileImageSelectionUtil.getImage(data, this);
+
+				if (image != null) {
+					if (requestCode == ProfileImageSelectionUtil.CAMERA) {
+						if (ProfileImageSelectionUtil.isUriTrue) {
+							image = ProfileImageSelectionUtil
+									.getCorrectOrientationImage(this,
+											data.getData(), image);
+						} else {
+							image = ProfileImageSelectionUtil
+									.getCorrectOrientationImage(this, image);
+						}
+					} else {
+
+						Uri selectedImage = data.getData();
+
+						image = ProfileImageSelectionUtil
+								.getCorrectOrientationImage(this,
+										selectedImage, image);
+					}
+
+					// mSaveText.setVisibility(View.VISIBLE);
+
+					String extStorageDirectory = Environment
+							.getExternalStorageDirectory().toString();
+
+					// you can create a new file name "test.jpg" in sdcard
+					// folder.
+					File folder = new File(extStorageDirectory + File.separator
+							+ "MoiAvenue");
+					if (!folder.exists()) {
+						folder.mkdirs();
+					}
+					filePath = folder + File.separator + filePath;
+
+					// ProfileImageSelectionUtil.saveBitmap(filePath, image);
+					bitmap = image;
+					// Toast.makeText(this,
+					// bitmap.getWidth() + " hei" + bitmap.getHeight(),
+					// Toast.LENGTH_SHORT).show();
+					// mAllImages.add(image);
+				}
+			}
+			//
+
+		}
+
 	}
 
 }

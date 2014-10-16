@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:background="@drawable/aftergram_rate_the_photo_popup_bg"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/option3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="top|right"
+            android:src="@drawable/aftergram_rate_the_photo_close_button" />
+
+        <TextView
+            android:id="@+id/alertTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dip"
+            android:gravity="center"
+            android:text="Choose Image"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/option1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dip"
+            android:background="@drawable/continue_button"
+            android:text="Take Photo" />
+
+        <Button
+            android:id="@+id/option2"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dip"
+            android:layout_marginBottom="20dip"
+            android:background="@drawable/continue_button"
+            android:text="Select From Galary" />
+
+        <!--
+             <Button
+            android:id="@+id/option3"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@android:string/cancel" />
+        -->
+    </LinearLayout>
+
+</LinearLayout>

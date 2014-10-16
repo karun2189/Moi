@@ -9,10 +9,11 @@
 
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
+        <item>Company news</item>
+        <item>Feedback</item>
         <item>Members</item>
         <item>Departments</item>
         <item>Uploads</item>
-        <item>Company news</item>
         <item>Quotes</item>
         <item>Schedule</item>
         <item>Logout</item>
@@ -28,8 +29,8 @@
         <item>@drawable/ic_pages</item>
         <item>@drawable/ic_whats_hot</item>
     </array>
-    
-      <!-- Dialog -->
+
+    <!-- Dialog -->
     <string name="dialog_network_message">This app requires an internet connection. Please connect to the internet and return to the app.</string>
     <string name="dialog_maintenance_message">We are currently in Maintenance, please try again later</string>
     <string name="dialog_error_message">An Network error has been occurred, please try again later</string>
@@ -38,7 +39,6 @@
     <string name="dialog_network_title">Network</string>
     <string name="dialog_information_title">Information</string>
     <string name="dialog_maintenance_title">Maintenance</string>
-    
 
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
@@ -60,5 +60,6 @@
     <string name="six_digit">" 6 digits pin *"</string>
     <string name="title_person">Title (Mr or Mrs, or Miss)</string>
     <string name="register">Register</string>
+    <string name="view_comments"><u>View Comments</u></string>
 
 </resources>

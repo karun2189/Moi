@@ -15,7 +15,11 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.moiavenue.AppConstants;
 import com.moiavenue.R;
+import com.moiavenue.commonutility.MoiAvenueUtilities;
+import com.moiavenue.parser.MoiAvenueParser;
 import com.moiavenue.reqmodel.RegistrationReq;
+import com.moiavenue.respmodel.LoginResponse;
+import com.moiavenue.service.ResponseListener;
 import com.moiavenue.service.WebserviceListener;
 import com.moiavenue.service.WebserviceManager;
 
@@ -89,22 +93,43 @@ public class ActivityRegisteration extends Activity implements OnClickListener {
 					public void onSucess(JSONObject response) {
 						try {
 
-							if (response.has("status")
-									&& (response.getInt("status") == AppConstants.SUCCESS)) {
+							MoiAvenueParser.getDataObject(
+									MoiAvenueUtilities.REG_REQ,
+									response.toString(),
+									new ResponseListener() {
 
-								onSucessRegResponse();
-							} else if (response.has("message")) {
-								Toast.makeText(
-										ActivityRegisteration.this,
-										"Error in Response"
-												+ response.get("message"),
-										Toast.LENGTH_LONG).show();
-							}
+										@Override
+										public void onResponseReceived(
+												int mRequestType,
+												Object mResponseObject) {
+											// TODO Auto-generated method stub
+											LoginResponse loginResponse = (LoginResponse) mResponseObject;
+											Toast.makeText(
+													ActivityRegisteration.this,
+													"succ"
+															+ loginResponse
+																	.getErrorMessage(),
+													Toast.LENGTH_LONG).show();
+											
+											onSucessRegResponse();
+
+										}
+									});
+
+							// if (response.has("status")
+							// && (response.getInt("status") ==
+							// AppConstants.SUCCESS)) {
+							//
+							// onSucessRegResponse();
+							// } else if (response.has("message")) {
+							// Toast.makeText(
+							// ActivityRegisteration.this,
+							// "Error in Response"
+							// + response.get("message"),
+							// Toast.LENGTH_LONG).show();
+							// }
 
 						} catch (NumberFormatException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (JSONException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}

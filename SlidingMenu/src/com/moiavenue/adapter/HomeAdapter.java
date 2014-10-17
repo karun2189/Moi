@@ -84,10 +84,12 @@ public class HomeAdapter extends BaseAdapter {
 //								iv.setImageBitmap(response);
 //
 //							}
-//						}, 0, 0, null, null);
+//						}, 200, 200, null, null);
 				
 				ImageAsyc imageAsyc = new ImageAsyc(mContext, iv);
 				imageAsyc.execute(photoData.getPostedFileUrl());
+				
+				
 
 			}
 

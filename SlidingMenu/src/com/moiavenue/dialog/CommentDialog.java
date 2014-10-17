@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
@@ -17,9 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.moiavenue.AppConstants;
 import com.moiavenue.R;
 import com.moiavenue.adapter.CommentsAdapter;
@@ -35,6 +39,7 @@ import com.moiavenue.service.WebserviceListener;
 import com.moiavenue.service.WebserviceManager;
 import com.moiavenue.ui.ActivityBaseDrawer;
 import com.moiavenue.ui.ActivityLogin;
+import com.moiavenue.ui.ImageAsyc;
 
 public class CommentDialog {
 
@@ -46,6 +51,7 @@ public class CommentDialog {
 	private ImageView mClose;
 	private Dialog mDialog;
 	private Context mContext;
+	private TextView mTitle;
 	private CompanyNewsData mCompanyNewsData;
 
 	public void showCommentDialog(final Context context,
@@ -64,6 +70,32 @@ public class CommentDialog {
 
 		dialog.getWindow().setBackgroundDrawable(
 				new ColorDrawable(Color.TRANSPARENT));
+
+		mTitle = (TextView) dialog.findViewById(R.id.comments);
+
+		mTitle.setText(dataEntityDetails.getPostedFileMessage());
+
+		if (dataEntityDetails.getPostedFileUrl().length() > 0) {
+			final ImageView iv = ((ImageView) dialog
+					.findViewById(R.id.posted_image));
+			iv.setVisibility(View.VISIBLE);
+			
+//			ImageRequest ir = new ImageRequest(
+//					dataEntityDetails.getPostedFileUrl(),
+//					new Response.Listener<Bitmap>() {
+//
+//						@Override
+//						public void onResponse(Bitmap response) {
+//
+//							iv.setImageBitmap(response);
+//
+//						}
+//					}, 200, 200, null, null);
+			
+			ImageAsyc imageAsyc = new ImageAsyc(mContext, iv);
+			imageAsyc.execute(dataEntityDetails.getPostedFileUrl());
+
+		}
 
 		mComment = (EditText) dialog.findViewById(R.id.enter_comment);
 		// mComment.setTypeface(TypefaceSingleton.getInstance().getHelvetica(

@@ -8,8 +8,11 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -52,8 +55,8 @@ public class CompanyNewsFragment extends Fragment {
 		sendWebservice();
 		// setAdapter();
 	}
-	
-	public void refresh(){
+
+	public void refresh() {
 		sendWebservice();
 	}
 

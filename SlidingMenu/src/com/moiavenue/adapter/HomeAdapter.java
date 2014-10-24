@@ -1,24 +1,15 @@
 package com.moiavenue.adapter;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.toolbox.ImageRequest;
 import com.moiavenue.R;
 import com.moiavenue.dialog.CommentDialog;
 import com.moiavenue.respmodel.CompanyNewsData;
@@ -74,22 +65,20 @@ public class HomeAdapter extends BaseAdapter {
 						.findViewById(R.id.posted_image));
 				iv.setVisibility(View.VISIBLE);
 
-//				ImageRequest ir = new ImageRequest(
-//						photoData.getPostedFileUrl(),
-//						new Response.Listener<Bitmap>() {
-//
-//							@Override
-//							public void onResponse(Bitmap response) {
-//
-//								iv.setImageBitmap(response);
-//
-//							}
-//						}, 200, 200, null, null);
-				
+				// ImageRequest ir = new ImageRequest(
+				// photoData.getPostedFileUrl(),
+				// new Response.Listener<Bitmap>() {
+				//
+				// @Override
+				// public void onResponse(Bitmap response) {
+				//
+				// iv.setImageBitmap(response);
+				//
+				// }
+				// }, 200, 200, null, null);
+
 				ImageAsyc imageAsyc = new ImageAsyc(mContext, iv);
 				imageAsyc.execute(photoData.getPostedFileUrl());
-				
-				
 
 			}
 
@@ -122,5 +111,4 @@ public class HomeAdapter extends BaseAdapter {
 		return position;
 	}
 
-	
 }

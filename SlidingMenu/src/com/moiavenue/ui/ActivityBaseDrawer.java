@@ -25,7 +25,6 @@ import android.widget.ListView;
 import com.moiavenue.R;
 import com.moiavenue.adapter.NavDrawerListAdapter;
 import com.moiavenue.commonutility.ProfileImageSelectionUtil;
-import com.moiavenue.dialog.FeedbackDialog;
 import com.moiavenue.model.NavDrawerItem;
 
 public class ActivityBaseDrawer extends Activity {
@@ -45,7 +44,7 @@ public class ActivityBaseDrawer extends Activity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
-	private Bitmap bitmap;
+//	private Bitmap bitmap;
 	private NavDrawerItem mCompnayNewsItem;
 
 	@Override
@@ -197,9 +196,9 @@ public class ActivityBaseDrawer extends Activity {
 			break;
 		case 1:
 			// fragment = new FindPeopleFragment();
-//			FeedbackDialog feedbackDialog = new FeedbackDialog();
-//			feedbackDialog.showFeedback(this);
-			fragment = new FeedBackFragment(); 
+			// FeedbackDialog feedbackDialog = new FeedbackDialog();
+			// feedbackDialog.showFeedback(this);
+			fragment = new FeedBackFragment();
 			break;
 		case 2:
 			fragment = new PhotosFragment();
@@ -319,7 +318,7 @@ public class ActivityBaseDrawer extends Activity {
 					filePath = folder + File.separator + filePath;
 
 					// ProfileImageSelectionUtil.saveBitmap(filePath, image);
-					bitmap = image;
+//					bitmap = image;
 					// Toast.makeText(this,
 					// bitmap.getWidth() + " hei" + bitmap.getHeight(),
 					// Toast.LENGTH_SHORT).show();

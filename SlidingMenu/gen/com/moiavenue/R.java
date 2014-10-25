@@ -33,6 +33,7 @@ public final class R {
         public static final int counter_text_bg=0x7f040004;
         public static final int counter_text_color=0x7f040005;
         public static final int green_but_back=0x7f040010;
+        public static final int header_trans_black=0x7f040011;
         public static final int list_background=0x7f040001;
         public static final int list_background_pressed=0x7f040002;
         public static final int list_divider=0x7f040003;
@@ -122,22 +123,22 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f0a0034;
         public static final int alertTitle=0x7f0a0030;
-        public static final int bottom_layout=0x7f0a0026;
-        public static final int btn_send_comment=0x7f0a0028;
+        public static final int bottom_layout=0x7f0a0023;
+        public static final int btn_send_comment=0x7f0a0025;
         public static final int cancel_tv=0x7f0a0010;
-        public static final int close_comment=0x7f0a0022;
+        public static final int close_comment=0x7f0a0027;
         public static final int comment_icon=0x7f0a0020;
-        public static final int comments=0x7f0a0023;
+        public static final int comments=0x7f0a0028;
         public static final int comments_adapter_date=0x7f0a0016;
         public static final int comments_adapter_profile_image=0x7f0a0012;
-        public static final int comments_listView=0x7f0a0025;
-        public static final int comments_message=0x7f0a0015;
+        public static final int comments_listView=0x7f0a0022;
+        public static final int comments_message=0x7f0a0014;
         public static final int comments_profile_name=0x7f0a0013;
         public static final int counter=0x7f0a002c;
         public static final int drawer_layout=0x7f0a0008;
-        public static final int enter_comment=0x7f0a0027;
+        public static final int enter_comment=0x7f0a0024;
         public static final int enter_feedback=0x7f0a0029;
-        public static final int first=0x7f0a0021;
+        public static final int first=0x7f0a0026;
         public static final int forgot_cancel_tv=0x7f0a0001;
         public static final int forgot_email=0x7f0a0000;
         public static final int forgot_tv=0x7f0a0002;
@@ -146,7 +147,7 @@ public final class R {
         public static final int icon=0x7f0a002a;
         public static final int linear=0x7f0a0018;
         public static final int linear2=0x7f0a001b;
-        public static final int linearLayout1=0x7f0a0014;
+        public static final int linearLayout1=0x7f0a0015;
         public static final int list_slidermenu=0x7f0a000a;
         public static final int login_forgot_tv=0x7f0a0007;
         public static final int login_login_tv=0x7f0a0005;
@@ -170,7 +171,7 @@ public final class R {
         public static final int reg_reenter_password_et=0x7f0a000f;
         public static final int reg_username_et=0x7f0a000b;
         public static final int register_tv=0x7f0a0011;
-        public static final int second=0x7f0a0024;
+        public static final int second=0x7f0a0021;
         public static final int title=0x7f0a002b;
         public static final int txtLabel=0x7f0a002d;
     }

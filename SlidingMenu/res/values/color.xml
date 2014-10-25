@@ -20,5 +20,7 @@
     <color name="screen_bankground">#2F1A3D</color>
     <color name="button_back">#382541</color>
     <color name="green_but_back">#21A56F</color>
+    
+    <color name="header_trans_black">#D90C0C0C</color>
 
 </resources>

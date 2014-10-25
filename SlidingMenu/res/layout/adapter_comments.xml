@@ -2,34 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:background="@drawable/round_rect_white" >
+        android:layout_height="80dp" >
 
         <ImageView
             android:id="@+id/comments_adapter_profile_image"
             android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/aftergram_home_tab_photo_mask_with_stroke"
+            android:layout_height="match_parent"
             android:contentDescription="@drawable/ic_launcher"
             android:src="@drawable/ic_launcher" />
 
-        <TextView
-            android:id="@+id/comments_profile_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
             android:layout_toRightOf="@+id/comments_adapter_profile_image"
-            android:layout_centerVertical="true"
-            android:text="mathan"
-            android:textColor="#000000"
-            android:textSize="16sp" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/comments_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/comments_message"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="My Comment"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -37,17 +49,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_rect_bottom"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:visibility="gone" >
 
         <TextView
-            android:id="@+id/comments_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:ellipsize="end"
-            android:singleLine="true"
-            android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
+            android:singleLine="true"
             android:text="My Comment"
             android:textColor="#000000"
             android:textSize="16sp" />

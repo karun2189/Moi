@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -44,7 +46,7 @@ public class ActivityBaseDrawer extends Activity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
-//	private Bitmap bitmap;
+	// private Bitmap bitmap;
 	private NavDrawerItem mCompnayNewsItem;
 
 	@Override
@@ -68,30 +70,30 @@ public class ActivityBaseDrawer extends Activity {
 
 		// adding nav drawer items to array
 		// Home
-		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
-		// .getResourceId(0, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+				.getResourceId(0, -1)));
 		// // Find People
-		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
-		// .getResourceId(1, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
 		// // Photos
-		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
-		// .getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
 
-		mCompnayNewsItem = new NavDrawerItem(navMenuTitles[0],
+		mCompnayNewsItem = new NavDrawerItem(navMenuTitles[3],
 				navMenuIcons.getResourceId(3, -1), true, "0");
 		// Communities, Will add a counter here
 		navDrawerItems.add(mCompnayNewsItem);
 
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
-				.getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+				.getResourceId(4, -1)));
 		// Pages
 		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
 		// .getResourceId(4, -1)));
 		// // What's hot, We will add a counter here
-		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
-		// .getResourceId(5, -1)));
-		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
-		// .getResourceId(6, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
+				.getResourceId(5, -1)));
+//		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
+//				.getResourceId(6, -1)));
 
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -198,21 +200,30 @@ public class ActivityBaseDrawer extends Activity {
 			// fragment = new FindPeopleFragment();
 			// FeedbackDialog feedbackDialog = new FeedbackDialog();
 			// feedbackDialog.showFeedback(this);
-			fragment = new FeedBackFragment();
+			fragment = new CompanyNewsFragment();
 			break;
 		case 2:
-			fragment = new PhotosFragment();
+			fragment = new CompanyNewsFragment();
 			break;
 		case 3:
 			fragment = new CompanyNewsFragment();
 			break;
+		// case 4:
+		// // fragment = new PagesFragment();
+		// // FeedbackDialog feedbackDialog = new FeedbackDialog();
+		// // feedbackDialog
+		// fragment = new FeedBackFragment();
+		//
+		// break;
 		case 4:
-			// fragment = new PagesFragment();
-			// FeedbackDialog feedbackDialog = new FeedbackDialog();
-			// feedbackDialog
+			fragment = new CompanyNewsFragment();
 			break;
 		case 5:
-			fragment = new WhatsHotFragment();
+//			fragment = new CompanyNewsFragment();
+			fragment = new CompanyNewsFragment();
+			break;
+		case 6:
+			logout();
 			break;
 
 		default:
@@ -235,7 +246,36 @@ public class ActivityBaseDrawer extends Activity {
 		}
 	}
 
-	public void refreshFragment() {
+	private void logout() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				ActivityBaseDrawer.this);
+
+		// set title
+		alertDialogBuilder.setTitle("Logout");
+
+		// set dialog message
+		alertDialogBuilder
+				.setMessage("Do You Want To Logout?")
+				.setCancelable(false)
+				.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// if this button is clicked, close
+								// current activity
+								finish();
+							}
+						})
+				.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// if this button is clicked, just close
+						// the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
+		alertDialogBuilder.show();
+	}
+
+	public void refreshFragment(int position) {
 
 		Fragment fragment = new CompanyNewsFragment();
 		FragmentManager fragmentManager = getFragmentManager();
@@ -243,9 +283,9 @@ public class ActivityBaseDrawer extends Activity {
 				.replace(R.id.frame_container, fragment).commit();
 
 		// update selected item and title, then close the drawer
-		mDrawerList.setItemChecked(0, true);
-		mDrawerList.setSelection(0);
-		setTitle(navMenuTitles[0]);
+		mDrawerList.setItemChecked(position, true);
+		mDrawerList.setSelection(position);
+		setTitle(navMenuTitles[position]);
 		mDrawerLayout.closeDrawer(mDrawerList);
 
 	}
@@ -318,7 +358,7 @@ public class ActivityBaseDrawer extends Activity {
 					filePath = folder + File.separator + filePath;
 
 					// ProfileImageSelectionUtil.saveBitmap(filePath, image);
-//					bitmap = image;
+					// bitmap = image;
 					// Toast.makeText(this,
 					// bitmap.getWidth() + " hei" + bitmap.getHeight(),
 					// Toast.LENGTH_SHORT).show();

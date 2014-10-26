@@ -130,6 +130,7 @@ public class ActivityLogin extends Activity implements OnClickListener {
 
 	private void onSuceeLoginResponse() {
 		startActivity(new Intent(this, ActivityBaseDrawer.class));
+		finish();
 	}
 
 	public static void hideKeyboard(Activity activity) {

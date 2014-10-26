@@ -172,7 +172,7 @@ public class CommentDialog {
 											CommonResponse loginResponse = (CommonResponse) mResponseObject;
 
 											((ActivityBaseDrawer) (mContext))
-													.refreshFragment();
+													.refreshFragment(1);
 
 											// Toast.makeText(
 											// mContext,

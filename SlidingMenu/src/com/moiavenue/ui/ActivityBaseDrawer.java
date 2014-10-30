@@ -39,6 +39,7 @@ public class ActivityBaseDrawer extends Activity {
 
 	// used to store app title
 	private CharSequence mTitle;
+	private Fragment fragment = null;
 
 	// slide menu items
 	private String[] navMenuTitles;
@@ -190,7 +191,7 @@ public class ActivityBaseDrawer extends Activity {
 	 * */
 	private void displayView(int position) {
 		// update the main content by replacing fragments
-		Fragment fragment = null;
+		
 		switch (position) {
 		case 0:
 			// fragment = new HomeFragment();
@@ -203,7 +204,7 @@ public class ActivityBaseDrawer extends Activity {
 			fragment = new CompanyNewsFragment();
 			break;
 		case 2:
-			fragment = new CompanyNewsFragment();
+			fragment = new UploadFragment();
 			break;
 		case 3:
 			fragment = new CompanyNewsFragment();
@@ -317,58 +318,12 @@ public class ActivityBaseDrawer extends Activity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		String filePath = "";
-		if (resultCode == RESULT_OK) {
-			if (requestCode == ProfileImageSelectionUtil.CAMERA
-					|| requestCode == ProfileImageSelectionUtil.GALLERY) {
-
-				Bitmap image = ProfileImageSelectionUtil.getImage(data, this);
-
-				if (image != null) {
-					if (requestCode == ProfileImageSelectionUtil.CAMERA) {
-						if (ProfileImageSelectionUtil.isUriTrue) {
-							image = ProfileImageSelectionUtil
-									.getCorrectOrientationImage(this,
-											data.getData(), image);
-						} else {
-							image = ProfileImageSelectionUtil
-									.getCorrectOrientationImage(this, image);
-						}
-					} else {
-
-						Uri selectedImage = data.getData();
-
-						image = ProfileImageSelectionUtil
-								.getCorrectOrientationImage(this,
-										selectedImage, image);
-					}
-
-					// mSaveText.setVisibility(View.VISIBLE);
-
-					String extStorageDirectory = Environment
-							.getExternalStorageDirectory().toString();
-
-					// you can create a new file name "test.jpg" in sdcard
-					// folder.
-					File folder = new File(extStorageDirectory + File.separator
-							+ "MoiAvenue");
-					if (!folder.exists()) {
-						folder.mkdirs();
-					}
-					filePath = folder + File.separator + filePath;
-
-					// ProfileImageSelectionUtil.saveBitmap(filePath, image);
-					// bitmap = image;
-					// Toast.makeText(this,
-					// bitmap.getWidth() + " hei" + bitmap.getHeight(),
-					// Toast.LENGTH_SHORT).show();
-					// mAllImages.add(image);
-				}
-			}
-			//
-
+		
+		if(fragment instanceof UploadFragment)
+		{
+			((UploadFragment)fragment).onActivityResult(requestCode, resultCode, data);
 		}
-
+		
 	}
 
 }

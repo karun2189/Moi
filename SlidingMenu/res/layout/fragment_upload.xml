@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/txtLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dip"
+        android:text="Enter Data To Upload"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/upload_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLabel"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:lines="3" >
+
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:id="@+id/upload_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upload_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@drawable/ic_people"
+        android:src="@drawable/ic_people"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/upload_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/upload_image"
+        android:text="Upload" />
+
+</RelativeLayout>

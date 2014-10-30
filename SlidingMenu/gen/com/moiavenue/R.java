@@ -121,8 +121,8 @@ public final class R {
         public static final int splash=0x7f020029;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0034;
-        public static final int alertTitle=0x7f0a0030;
+        public static final int action_settings=0x7f0a0037;
+        public static final int alertTitle=0x7f0a0033;
         public static final int bottom_layout=0x7f0a0023;
         public static final int btn_send_comment=0x7f0a0025;
         public static final int cancel_tv=0x7f0a0010;
@@ -143,7 +143,7 @@ public final class R {
         public static final int forgot_email=0x7f0a0000;
         public static final int forgot_tv=0x7f0a0002;
         public static final int frame_container=0x7f0a0009;
-        public static final int header_text=0x7f0a0033;
+        public static final int header_text=0x7f0a0036;
         public static final int icon=0x7f0a002a;
         public static final int linear=0x7f0a0018;
         public static final int linear2=0x7f0a001b;
@@ -155,9 +155,9 @@ public final class R {
         public static final int login_register_tv=0x7f0a0006;
         public static final int login_userid_et=0x7f0a0003;
         public static final int news_list=0x7f0a002e;
-        public static final int option1=0x7f0a0031;
-        public static final int option2=0x7f0a0032;
-        public static final int option3=0x7f0a002f;
+        public static final int option1=0x7f0a0034;
+        public static final int option2=0x7f0a0035;
+        public static final int option3=0x7f0a0032;
         public static final int parent_layout=0x7f0a0017;
         public static final int posted_image=0x7f0a001f;
         public static final int posted_message=0x7f0a001c;
@@ -174,6 +174,9 @@ public final class R {
         public static final int second=0x7f0a0021;
         public static final int title=0x7f0a002b;
         public static final int txtLabel=0x7f0a002d;
+        public static final int upload_button=0x7f0a0031;
+        public static final int upload_image=0x7f0a0030;
+        public static final int upload_text=0x7f0a002f;
     }
     public static final class layout {
         public static final int activity_forgot_login=0x7f030000;
@@ -192,10 +195,11 @@ public final class R {
         public static final int fragment_home=0x7f03000d;
         public static final int fragment_pages=0x7f03000e;
         public static final int fragment_photos=0x7f03000f;
-        public static final int fragment_whats_hot=0x7f030010;
-        public static final int phot_selection=0x7f030011;
-        public static final int splash_1=0x7f030012;
-        public static final int splash_screen=0x7f030013;
+        public static final int fragment_upload=0x7f030010;
+        public static final int fragment_whats_hot=0x7f030011;
+        public static final int phot_selection=0x7f030012;
+        public static final int splash_1=0x7f030013;
+        public static final int splash_screen=0x7f030014;
     }
     public static final class menu {
         public static final int main=0x7f090000;

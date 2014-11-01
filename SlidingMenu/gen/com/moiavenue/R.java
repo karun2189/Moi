@@ -1047,8 +1047,8 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040067;
-        public static final int alertTitle=0x7f040063;
+        public static final int action_settings=0x7f04006a;
+        public static final int alertTitle=0x7f040066;
         public static final int bottom_layout=0x7f040055;
         public static final int btn_send_comment=0x7f040057;
         public static final int cancel_tv=0x7f040042;
@@ -1071,7 +1071,7 @@ containing a value of this type.
         public static final int forgot_email=0x7f040032;
         public static final int forgot_tv=0x7f040034;
         public static final int frame_container=0x7f04003b;
-        public static final int header_text=0x7f040066;
+        public static final int header_text=0x7f040069;
         public static final int homeAsUp=0x7f040006;
         public static final int icon=0x7f04005c;
         public static final int linear=0x7f04004a;
@@ -1087,9 +1087,9 @@ containing a value of this type.
         public static final int members_list=0x7f040061;
         public static final int news_list=0x7f040060;
         public static final int normal=0x7f040001;
-        public static final int option1=0x7f040064;
-        public static final int option2=0x7f040065;
-        public static final int option3=0x7f040062;
+        public static final int option1=0x7f040067;
+        public static final int option2=0x7f040068;
+        public static final int option3=0x7f040065;
         public static final int parent_layout=0x7f040049;
         public static final int posted_image=0x7f040051;
         public static final int posted_message=0x7f04004e;
@@ -1110,6 +1110,9 @@ containing a value of this type.
         public static final int tabMode=0x7f040003;
         public static final int title=0x7f04005d;
         public static final int txtLabel=0x7f04005f;
+        public static final int upload_button=0x7f040064;
+        public static final int upload_image=0x7f040063;
+        public static final int upload_text=0x7f040062;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
     }
@@ -1155,12 +1158,13 @@ containing a value of this type.
         public static final int fragment_members=0x7f030023;
         public static final int fragment_pages=0x7f030024;
         public static final int fragment_photos=0x7f030025;
-        public static final int fragment_whats_hot=0x7f030026;
-        public static final int phot_selection=0x7f030027;
-        public static final int sherlock_spinner_dropdown_item=0x7f030028;
-        public static final int sherlock_spinner_item=0x7f030029;
-        public static final int splash_1=0x7f03002a;
-        public static final int splash_screen=0x7f03002b;
+        public static final int fragment_upload=0x7f030026;
+        public static final int fragment_whats_hot=0x7f030027;
+        public static final int phot_selection=0x7f030028;
+        public static final int sherlock_spinner_dropdown_item=0x7f030029;
+        public static final int sherlock_spinner_item=0x7f03002a;
+        public static final int splash_1=0x7f03002b;
+        public static final int splash_screen=0x7f03002c;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

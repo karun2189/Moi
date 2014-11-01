@@ -10,6 +10,7 @@ public class AppConstants {
 	public static final String REG_ACTION = "register";
 	public static final String FORGOT_LOGIN_ACTION = "forgot_login";
 	public static final String GET_COMPANY_NEWS = "company_news";
+	public static final String GET_MEMBERS = "get_members";
 	public static final String POST_COMMENT = "comment";
 	public static final String POST_FEEDBACK = "post_feedback";
 

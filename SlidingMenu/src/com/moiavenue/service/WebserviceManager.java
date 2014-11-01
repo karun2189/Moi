@@ -20,19 +20,15 @@ public class WebserviceManager {
 
 	public static void getResponseForRequest(Context context, Object obj,
 			final WebserviceListener webserviceListener) {
-		// Tag used to cancel the request
+
 		String tagReqObj = "reqObj";
-
-		
-
-		Log.e("text", "text " + obj.toString());
 		String url = AppConstants.BASE_URL;
 
 		final ProgressDialog pDialog = new ProgressDialog(context);
 		pDialog.setMessage("Loading...");
 		pDialog.show();
 		String jsonString = new Gson().toJson(obj);
-		System.out.println("text " + jsonString);
+		Log.d("","Request Json : " + jsonString);
 		JSONObject jsonObject = null;
 		try {
 			jsonObject = new JSONObject(jsonString);

@@ -194,7 +194,7 @@ public class ActivityBaseDrawer extends Activity {
 		switch (position) {
 		case 0:
 			// fragment = new HomeFragment();
-			fragment = new CompanyNewsFragment();
+			fragment = new MemberFragment();
 			break;
 		case 1:
 			// fragment = new FindPeopleFragment();
